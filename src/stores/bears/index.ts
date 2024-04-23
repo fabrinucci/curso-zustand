@@ -19,7 +19,7 @@ interface BearState {
   resetBears: () => void
 }
 
-export const useBearStore = create<BearState>((set, get) => ({
+export const useBearStore = create<BearState>()((set, get) => ({
   blackBears: 20,
   polarBears: 3,
   pandaBears: 12,
