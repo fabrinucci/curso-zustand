@@ -1,6 +1,6 @@
 import { type StateCreator, create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { customSessionStorage } from '../storages/sessionStorage';
+import { customSessionStorage } from '../storages/sessionStorage.store';
 
 interface Person {
   firstName: string
@@ -21,8 +21,8 @@ const storeApi: StateCreator<Person, [["zustand/devtools", never]]> = (set) => (
 export const usePersonStore = create<Person>()(
   devtools(
     persist(storeApi, {
+      storage: customSessionStorage,
       name: 'person-store',
-      storage: customSessionStorage
     })
   )
 );

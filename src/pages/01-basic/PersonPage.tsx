@@ -1,5 +1,5 @@
 import { WhiteCard } from '../../components';
-import { usePersonStore } from '../../stores/person';
+import { usePersonStore } from '../../stores';
 
 
 

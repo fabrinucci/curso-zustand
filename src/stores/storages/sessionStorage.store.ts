@@ -7,7 +7,7 @@ const storageApi: StateStorage = {
   },
 
   setItem: function (name: string, value: string): void {
-    return sessionStorage.setItem(name, value)
+    sessionStorage.setItem(name, value)
   },
 
   removeItem: function (name: string): void {
@@ -15,5 +15,5 @@ const storageApi: StateStorage = {
   }
 }
 
-export const customSessionStorage = createJSONStorage(() => storageApi)
+export const customSessionStorage = createJSONStorage(() => storageApi);
 
