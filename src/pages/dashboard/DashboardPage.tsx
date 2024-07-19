@@ -5,9 +5,11 @@ import { usePersonStore } from '../../stores/person/person.store';
 import { useTaskStore } from '../../stores';
 
 export const Dashboard = () => {
-  const { totalBears } = useBearStore(state => state.computed)
-  const firstName = usePersonStore(state => state.firstName)
-  const tasksCount = useTaskStore(state => Object.values(state.tasks).length)
+  const { totalBears } = useBearStore(state => state.computed);
+  const firstNameUser = usePersonStore(state => state.firstName);
+  const tasksCount = useTaskStore(state => Object.values(state.tasks).length);
+
+
   return (
     <>
       <h1>Dashboard</h1>
@@ -26,7 +28,7 @@ export const Dashboard = () => {
         <WhiteCard centered>
           <IoAccessibilityOutline size={ 50 } className="text-indigo-600" />
           <h2>Persona</h2>
-          <p>{firstName}</p>
+          <p>{firstNameUser}</p>
         </WhiteCard>
 
 

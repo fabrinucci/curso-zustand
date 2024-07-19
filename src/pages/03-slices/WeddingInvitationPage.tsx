@@ -1,8 +1,21 @@
 import { WhiteCard } from '../../components';
-
-
+import { useWeddingBoundStore } from '../../stores/wedding';
 
 export const WeddingInvitationPage = () => {
+  const firstName = useWeddingBoundStore(state => state.firstName);
+  const lastName = useWeddingBoundStore(state => state.lastName);
+  const setFirstName = useWeddingBoundStore(state => state.setFirstName);
+  const setLastName = useWeddingBoundStore(state => state.setLastName);
+
+  const guestCount = useWeddingBoundStore(state => state.guestCount);
+  const setGuestCount = useWeddingBoundStore(state => state.setGuestCount);
+
+  const eventDate = useWeddingBoundStore(state => state.eventDate);
+  console.log(eventDate);
+  
+  const setEventDate = useWeddingBoundStore(state => state.setEventDate);
+
+
   return (
     <>
       <h1>Invitación de Boda</h1>
@@ -21,10 +34,12 @@ export const WeddingInvitationPage = () => {
                     Primer Nombre
                   </label>
                   <input
+                    onChange={(e) => setFirstName(e.target.value)}
                     type="text"
                     name="firstName"
                     id="firstName"
                     placeholder="Primer Nombre"
+                    value={firstName}
                   />
                 </div>
               </div>
@@ -36,10 +51,12 @@ export const WeddingInvitationPage = () => {
                     Apellido
                   </label>
                   <input
+                    onChange={(e) => setLastName(e.target.value)}
                     type="text"
                     name="lastName"
                     id="lastName"
                     placeholder="Apellido"
+                    value={lastName}
                   />
                 </div>
               </div>
@@ -56,6 +73,8 @@ export const WeddingInvitationPage = () => {
                 id="guestNumber"
                 placeholder="5"
                 min="0"
+                value={guestCount}
+                onChange={e => setGuestCount(+e.target.value)}
                 className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
             </div>
@@ -72,6 +91,8 @@ export const WeddingInvitationPage = () => {
                     type="date"
                     name="eventDate"
                     id="eventDate"
+                    value={eventDate}
+                    onChange={e => setEventDate(e.target.value)}
                   />
                 </div>
               </div>
